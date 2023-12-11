@@ -33,7 +33,7 @@ SortStats selection_sort(std::vector<T>& data)
     }
 
     auto end_time = HRC::now();
-    return SortStats(start_time, end_time, "Selection");
+    return SortStats(Micro(end_time - start_time).count(), "Selection");
 }
 
 template <typename T>
@@ -46,7 +46,7 @@ SortStats insertion_sort(std::vector<T>& data)
             std::swap(data[j], data[j - 1]);
 
     auto end_time = HRC::now();
-    return SortStats(start_time, end_time, "Insertion");
+    return SortStats(Micro(end_time - start_time).count(), "Insertion");
 }
 
 template <typename T>
@@ -60,7 +60,7 @@ SortStats bubble_sort(std::vector<T>& data)
                 std::swap(data[j], data[j + 1]);
 
     auto end_time = HRC::now();
-    return SortStats(start_time, end_time, "Bubble");
+    return SortStats(Micro(end_time - start_time).count(), "Bubble");
 }
 
 template <typename T>
@@ -97,7 +97,7 @@ SortStats quick_sort(std::vector<T>& data)
         quick_sort(data, 0, int(data.size() - 1));
 
     auto end_time = HRC::now();
-    return SortStats(start_time, end_time, "Quick");
+    return SortStats(Micro(end_time - start_time).count(), "Quick");
 }
 
 template <typename T>
@@ -149,6 +149,6 @@ SortStats merge_sort(std::vector<T>& data)
     merge(data);
 
     auto end_time = HRC::now();
-    return SortStats(start_time, end_time, "Merge");
+    return SortStats(Micro(end_time - start_time).count(), "Merge");
 }
 #endif

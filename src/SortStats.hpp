@@ -14,11 +14,9 @@ private:
 	double total_time;
 	std::string name;
 public:
-	SortStats(std::chrono::steady_clock::time_point start_time, std::chrono::steady_clock::time_point end_time, std::string name)
-		: name(name)
-	{
-		total_time = Micro(end_time - start_time).count();
-	}
+	SortStats(const double total_time, std::string name)
+		: total_time(total_time), name(name)
+	{}
 	double get_total_time() const
 	{
 		return total_time;

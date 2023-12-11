@@ -20,7 +20,7 @@ int get_value()
 		getline(std::cin, input_string);
 
 		if (is_value(input_string))
-			return std::stoul(input_string);
+			return std::stoi(input_string);
 		else
 			std::cout << "Incorrect input. Try again." << std::endl << std::endl;
 	}
@@ -42,15 +42,9 @@ int main()
 	std::cout << std::endl;
 
 	const std::vector vector = random_int_vector(size);
-	/*
-	for (auto & it : vector)
-		std::cout << std::setw(4) << it << std::right;
-	std::cout << std::endl << std::endl;
-	*/
-	
 	std::vector<SortStats> stats;
 	
-	std::vector vector_copy = vector;
+	std::vector<int> vector_copy = vector;
 	stats.push_back(insertion_sort(vector_copy));
 
 	vector_copy = vector;
